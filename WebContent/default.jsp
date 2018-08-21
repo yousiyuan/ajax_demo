@@ -4,24 +4,30 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="refresh" content="1" />
 <title>原生js实现ajax请求</title>
 <script type="text/javascript" src="/ajax_demo/Scripts/common.js"></script>
 <script type="text/javascript">
 	window.onload = function() {
+		var method = (new Date()).getSeconds() % 2 == 0 ? "GET" : "POST";
 		ajax({
 			async : true,
 			contentType : "application/x-www-form-urlencoded",
-			dataType : "text/html",
-			type : "GET",
+			dataType : "text",
+			type : method,
 			url : "/ajax_demo/servlet/TestServlet",
 			data : {
 				"k" : "method",
-				"v" : "GET"
+				"v" : method
 			},
 			success : function(resp, status, xhr) {
 				document.getElementById("result").innerHTML = resp;
+				console.log(status);
+				console.log(xhr.responseText);
 			},
 			error : function(xhr, status) {
+				console.log(status);
+				console.log(xhr.responseText);
 			}
 		});
 	}
