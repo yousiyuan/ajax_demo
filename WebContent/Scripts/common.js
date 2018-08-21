@@ -152,7 +152,7 @@ function ajax() {
 	// 步骤一:创建异步对象
 	var xhr = createxmlHttpRequest();
 	if (ajaxData.type == "GET") {
-		// 步骤二:设置请求的url参数,参数一是请求的类型,参数二是请求的url,可以带参数,动态的传递参数starName到服务端
+		// 步骤二:设置请求的url参数,参数一是请求的类型,参数二是请求的url,可以带参数,传递参数到服务端
 		if (ajaxData.data) {
 			xhr.open(ajaxData.type, ajaxData.url + "?"
 					+ convertData(ajaxData.data) + "&t=" + Math.random(),
@@ -165,7 +165,7 @@ function ajax() {
 		// 步骤三:发送请求
 		xhr.send();
 	} else if (ajaxData.type == "POST") {
-		// 步骤二:设置请求的url参数,参数一是请求的类型,参数二是请求的url,可以带参数,动态的传递参数starName到服务端
+		// 步骤二:设置请求的url参数,参数一是请求的类型,参数二是请求的url,可以带参数,传递参数到服务端
 		xhr.open(ajaxData.type, ajaxData.url, ajaxData.async);
 		xhr.responseType = ajaxData.dataType;
 		xhr.setRequestHeader("Content-Type", ajaxData.contentType);
